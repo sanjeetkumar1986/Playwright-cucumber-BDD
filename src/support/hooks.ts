@@ -4,13 +4,26 @@ import { CustomWorld } from './custom-world';
 import dotenv from 'dotenv';
 import path from 'path';
 
-// Loads the variables from the root .env file into process.env
+// Loads the variables from the root .env file into process.env if present
 dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 setDefaultTimeout(60 * 1000);
 
 Before(async function (this: CustomWorld) {
-  this.browser = await chromium.launch({ headless: false, slowMo: 1000 });
+  // If running in CI or HEADED isn't explicitly set to 'true', run headless
+  const isCI = process.env.CI === 'true';
+  const isHeadless = isCI || process.env.HEADED !== 'true';
+
+  this.browser = await chromium.launch({
+    headless: isHeadless,
+    slowMo: isHeadless ? 0 : 500,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+    ],
+  });
+
   this.context = await this.browser.newContext();
   this.page = await this.context.newPage();
 

@@ -1,6 +1,7 @@
+const isCI = process.env.CI === 'true';
 module.exports = {
   default: {
-    parallel: 2,
+    parallel: isCI ? 1 : 2,
     requireModule: ['tsx'],
     require: [
       'src/step-definitions/**/*.ts',
@@ -11,8 +12,8 @@ module.exports = {
     ],
     format: [
       'summary',
-      'progress-bar',
-	  'allure-cucumberjs/reporter'
+      (!isCI ? ['progress-bar'] : []),
+      'allure-cucumberjs/reporter'
     ],
 	formatOptions: {
       resultsDir: 'allure-results'
