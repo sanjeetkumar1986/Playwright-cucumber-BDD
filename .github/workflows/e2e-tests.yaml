@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
@@ -42,7 +42,7 @@ jobs:
 
       - name: Upload Allure Report Artifact
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report/
@@ -50,7 +50,7 @@ jobs:
 
       - name: Upload Failure Screenshots
         if: failure()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
           name: failure-screenshots
           path: allure-results/*-failure.png
