@@ -12,8 +12,7 @@ module.exports = {
     ],
     format: [
       'summary',
-      (!isCI ? ['progress-bar'] : []),
-      'allure-cucumberjs/reporter'
+      'allure-cucumberjs'
     ],
 	formatOptions: {
       resultsDir: 'allure-results'

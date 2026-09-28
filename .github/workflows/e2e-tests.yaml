@@ -33,7 +33,6 @@ jobs:
         env:
           HEADED: 'false'
           QA_FLIPKART_URL: https://www.flipkart.com/
-          NODE_OPTIONS: "--trace-warnings --unhandled-rejections=strict"
         run: npx cucumber-js --config src/config/cucumber.js --backtrace
 
       - name: Generate Allure Report
