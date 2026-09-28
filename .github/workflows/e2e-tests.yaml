@@ -32,8 +32,9 @@ jobs:
       - name: Run Cucumber Tests
         env:
           HEADED: 'false'
-          QA_FLIPKART_URL: ${{ secrets.QA_FLIPKART_URL || 'https://www.flipkart.com/' }}
-        run: npx cucumber-js --config src/config/cucumber.js
+          QA_FLIPKART_URL: https://www.flipkart.com/
+          NODE_OPTIONS: "--trace-warnings --unhandled-rejections=strict"
+        run: npx cucumber-js --config src/config/cucumber.js --backtrace
 
       - name: Generate Allure Report
         if: always()
