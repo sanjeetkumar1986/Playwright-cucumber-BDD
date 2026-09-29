@@ -20,6 +20,7 @@ export class SearchMobilePage extends BasePage {
 }
   async searchProduct(productName: string): Promise<void> {
    await this.searchProductInput.waitFor({ state: 'visible', timeout: 15000 });
+   await this.searchProductInput.click();
     await this.searchProductInput.fill(productName);
   }
   async clickSearchButton(): Promise<void> {
