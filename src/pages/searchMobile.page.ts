@@ -19,10 +19,12 @@ export class SearchMobilePage extends BasePage {
   await this.navigateTo(url);
 }
   async searchProduct(productName: string): Promise<void> {
+   await this.searchProductInput.waitFor({ state: 'visible', timeout: 15000 });
     await this.searchProductInput.fill(productName);
   }
   async clickSearchButton(): Promise<void> {
-    await this.searchButton.click();
+     await this.searchButton.waitFor({ state: 'visible', timeout: 5000 });
+     await this.searchButton.click();
   } 
   async closeLoginPopupIfVisible(): Promise<void> {
     if (await this.closeButton.isVisible().catch(() => false)) {
