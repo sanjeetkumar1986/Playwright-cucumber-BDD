@@ -9,6 +9,9 @@ on:
     branches: [ main, master ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   test:
     name: Run BDD Tests
@@ -25,7 +28,7 @@ jobs:
           node-version: 22
           cache: 'npm'
 
-      - name: Setup Java 
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -58,7 +61,7 @@ jobs:
         run: |
           npx allure generate allure-results --clean -o allure-report
 
-      - name: Upload Allure HTML Report
+      - name: Upload Allure HTML Report Artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -75,10 +78,13 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
-      - name: Archive Allure Report for Email
+      - name: Deploy Allure Report to GitHub Pages
         if: always()
-        run: |
-          zip -r allure-report.zip allure-report/
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          publish_branch: gh-pages
 
       - name: Send Execution Report Email
         if: always()
@@ -98,6 +104,5 @@ jobs:
             <p><strong>Branch:</strong> ${{ github.ref_name }}</p>
             <p><strong>Triggered By:</strong> ${{ github.actor }}</p>
             <p><strong>Job Status:</strong> <span style="color: ${{ job.status == 'success' && 'green' || 'red' }}; font-weight: bold;">${{ job.status }}</span></p>
-            <p><strong>GitHub Run Details:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">View Action Run</a></p>
-            <p>The zipped Allure report is attached to this email.</p>
-          attachments: allure-report.zip
+            <p><strong>Live Allure Report:</strong> <a href="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/">View Online Report</a></p>
+            <p><strong>GitHub Run Details:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">View Action Run & Download Raw Artifacts</a></p>
