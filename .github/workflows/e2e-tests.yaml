@@ -1,6 +1,8 @@
 name: Playwright Cucumber E2E Tests
 
 on:
+  schedule:
+    - cron: '20 20 * * 5'
   push:
     branches: [ main, master ]
   pull_request:
@@ -36,6 +38,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run Cucumber Tests
+        id: cucumber_tests
         env:
           HEADED: 'false'
           QA_FLIPKART_URL: https://www.flipkart.com/
@@ -71,3 +74,30 @@ jobs:
           path: allure-results/*-failure.png
           retention-days: 7
           if-no-files-found: ignore
+
+      - name: Archive Allure Report for Email
+        if: always()
+        run: |
+          zip -r allure-report.zip allure-report/
+
+      - name: Send Execution Report Email
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "Test Execution Status: ${{ job.status }} - ${{ github.repository }} (Run #${{ github.run_number }})"
+          to: ${{ secrets.MAIL_RECIPIENTS }}
+          from: "Automation Reporter <${{ secrets.MAIL_USERNAME }}>"
+          html_body: |
+            <h2>Test Execution Summary</h2>
+            <p><strong>Repository:</strong> ${{ github.repository }}</p>
+            <p><strong>Branch:</strong> ${{ github.ref_name }}</p>
+            <p><strong>Triggered By:</strong> ${{ github.actor }}</p>
+            <p><strong>Job Status:</strong> <span style="color: ${{ job.status == 'success' && 'green' || 'red' }}; font-weight: bold;">${{ job.status }}</span></p>
+            <p><strong>GitHub Run Details:</strong> <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">View Action Run</a></p>
+            <p>The zipped Allure report is attached to this email.</p>
+          attachments: allure-report.zip
