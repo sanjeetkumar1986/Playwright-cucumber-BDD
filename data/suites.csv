@@ -1,13 +1,13 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "As a Flipkart user
-  I want to search for Vivo mobile phones
-  So that I can view relevant products and their specifications","4841","Search for various Vivo mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
+  I want to search for Samsung mobile phones
+  So that I can view relevant products and their specifications","5224","Search for various Samsung mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
 "As a Flipkart user
   I want to search for Samsung mobile phones
-  So that I can view relevant products and their specifications","5696","Search for various Samsung mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
-"As a Flipkart user
-  I want to search for Samsung mobile phones
-  So that I can view relevant products and their specifications","5492","Search for various Samsung mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
+  So that I can view relevant products and their specifications","5748","Search for various Samsung mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
 "As a Flipkart user
   I want to search for Vivo mobile phones
-  So that I can view relevant products and their specifications","4535","Search for various Vivo mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
+  So that I can view relevant products and their specifications","5181","Search for various Vivo mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
+"As a Flipkart user
+  I want to search for Vivo mobile phones
+  So that I can view relevant products and their specifications","4833","Search for various Vivo mobile models and verify search results","","2026-09-29","passed","2026-09-29","","","",""
