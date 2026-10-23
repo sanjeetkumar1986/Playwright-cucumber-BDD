@@ -1,13 +1,13 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "As a Flipkart user
-  I want to search for Samsung mobile phones
-  So that I can view relevant products and their specifications","5297","Search for various Samsung mobile models and verify search results","","2026-10-16","passed","2026-10-16","","","",""
-"As a Flipkart user
   I want to search for Vivo mobile phones
-  So that I can view relevant products and their specifications","6367","Search for various Vivo mobile models and verify search results","","2026-10-16","passed","2026-10-16","","","",""
-"As a Flipkart user
-  I want to search for Vivo mobile phones
-  So that I can view relevant products and their specifications","5070","Search for various Vivo mobile models and verify search results","","2026-10-16","passed","2026-10-16","","","",""
+  So that I can view relevant products and their specifications","17212","Search for various Vivo mobile models and verify search results","","2026-10-23","broken","2026-10-23","","","",""
 "As a Flipkart user
   I want to search for Samsung mobile phones
-  So that I can view relevant products and their specifications","5192","Search for various Samsung mobile models and verify search results","","2026-10-16","passed","2026-10-16","","","",""
+  So that I can view relevant products and their specifications","4954","Search for various Samsung mobile models and verify search results","","2026-10-23","passed","2026-10-23","","","",""
+"As a Flipkart user
+  I want to search for Vivo mobile phones
+  So that I can view relevant products and their specifications","3539","Search for various Vivo mobile models and verify search results","","2026-10-23","passed","2026-10-23","","","",""
+"As a Flipkart user
+  I want to search for Samsung mobile phones
+  So that I can view relevant products and their specifications","4574","Search for various Samsung mobile models and verify search results","","2026-10-23","passed","2026-10-23","","","",""
