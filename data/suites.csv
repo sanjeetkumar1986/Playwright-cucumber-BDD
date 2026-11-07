@@ -1,13 +1,13 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "As a Flipkart user
-  I want to search for Vivo mobile phones
-  So that I can view relevant products and their specifications","5296","Search for various Vivo mobile models and verify search results","","2026-10-30","passed","2026-10-30","","","",""
-"As a Flipkart user
   I want to search for Samsung mobile phones
-  So that I can view relevant products and their specifications","6252","Search for various Samsung mobile models and verify search results","","2026-10-30","passed","2026-10-30","","","",""
-"As a Flipkart user
-  I want to search for Samsung mobile phones
-  So that I can view relevant products and their specifications","6200","Search for various Samsung mobile models and verify search results","","2026-10-30","passed","2026-10-30","","","",""
+  So that I can view relevant products and their specifications","6701","Search for various Samsung mobile models and verify search results","","2026-11-07","failed","2026-11-07","","","",""
 "As a Flipkart user
   I want to search for Vivo mobile phones
-  So that I can view relevant products and their specifications","4843","Search for various Vivo mobile models and verify search results","","2026-10-30","failed","2026-10-30","","","",""
+  So that I can view relevant products and their specifications","5226","Search for various Vivo mobile models and verify search results","","2026-11-07","passed","2026-11-07","","","",""
+"As a Flipkart user
+  I want to search for Vivo mobile phones
+  So that I can view relevant products and their specifications","5323","Search for various Vivo mobile models and verify search results","","2026-11-07","passed","2026-11-07","","","",""
+"As a Flipkart user
+  I want to search for Samsung mobile phones
+  So that I can view relevant products and their specifications","6846","Search for various Samsung mobile models and verify search results","","2026-11-07","passed","2026-11-07","","","",""
